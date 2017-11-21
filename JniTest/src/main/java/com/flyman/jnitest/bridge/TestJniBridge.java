@@ -15,4 +15,8 @@ public class TestJniBridge {
 
     public static native void test();
 
+    public native void testRunPthread(String name);
+
+    public native void testByteArray(byte[] bytes,int size);
+
 }
