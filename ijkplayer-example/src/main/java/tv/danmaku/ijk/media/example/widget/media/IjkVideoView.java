@@ -87,6 +87,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
 
     // All the stuff we need for playing and showing a video
     private IRenderView.ISurfaceHolder mSurfaceHolder = null;
+    //播放器java 层实现
     private IMediaPlayer mMediaPlayer = null;
     // private int         mAudioSession;
     private int mVideoWidth;
@@ -115,10 +116,12 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
 
     private Context mAppContext;
     private Settings mSettings;
+    //类型mvp中的view,提供接口
     private IRenderView mRenderView;
     private int mVideoSarNum;
     private int mVideoSarDen;
 
+    //日志
     private InfoHudViewHolder mHudViewHolder;
 
     private long mPrepareStartTime = 0;
@@ -127,6 +130,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     private long mSeekStartTime = 0;
     private long mSeekEndTime = 0;
 
+    //时间进度条
     private TextView subtitleDisplay;
 
     public IjkVideoView(Context context) {
@@ -1020,6 +1024,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
         IMediaPlayer mediaPlayer = null;
 
         switch (playerType) {
+            //硬编码
             case Settings.PV_PLAYER__IjkExoMediaPlayer: {
                 IjkExoMediaPlayer IjkExoMediaPlayer = new IjkExoMediaPlayer(mAppContext);
                 mediaPlayer = IjkExoMediaPlayer;
