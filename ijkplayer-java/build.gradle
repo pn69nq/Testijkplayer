@@ -25,5 +25,3 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 }
-
-apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");

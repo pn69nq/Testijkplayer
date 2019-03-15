@@ -83,8 +83,8 @@ public class VideoActivity extends AppCompatActivity implements TracksFragment.I
         mSettings = new Settings(this);
 
         // handle arguments
-        mVideoPath = getIntent().getStringExtra("videoPath");
-//        mVideoPath = "rtmp://live.xiaotaotv.com/live/1156766-2-0?token=T2wvbXJBQ1ZGaDN0SnFxanY4NGRiUDVJaWdkbTVxTHJ6VC83bkd6S1lYVT0=";
+//        mVideoPath = getIntent().getStringExtra("videoPath");
+        mVideoPath = "rtmp://live.hkstv.hk.lxdns.com/live/hks1";
 
 
         Intent intent = getIntent();
