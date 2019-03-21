@@ -1,18 +1,20 @@
 apply plugin: 'com.android.library'
 
+def cfg = rootProject.ext.android
+
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion cfg.compileSdkVersion
     //noinspection GroovyAssignabilityCheck
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion cfg.buildToolsVersion
 
     lintOptions {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
     }
     buildTypes {
         release {

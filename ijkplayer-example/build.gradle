@@ -1,21 +1,25 @@
 apply plugin: 'com.android.application'
+//android配置
+def cfg = rootProject.ext.android
+def supportLibs = rootProject.ext.supportDependencies
+
 
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion cfg.compileSdkVersion
     //noinspection GroovyAssignabilityCheck
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion cfg.buildToolsVersion
 
     lintOptions {
         abortOnError false
     }
     defaultConfig {
         applicationId "tv.danmaku.ijk.media.example"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
     }
     buildTypes {
         release {
@@ -35,9 +39,11 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:23.0.1'
-    implementation 'com.android.support:preference-v7:23.0.1'
-    implementation 'com.android.support:support-annotations:23.0.1'
+    implementation supportLibs.supportAppcompat
+//    implementation supportLibs.
+
+    implementation supportLibs.preference
+//    implementation 'com.android.support:support-annotations:23.0.1'
 
     implementation 'com.squareup:otto:1.3.8'
 

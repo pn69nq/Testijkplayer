@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from: "config.gradle"
 buildscript {
     repositories {
         jcenter()
@@ -25,19 +25,4 @@ allprojects {
             name 'Google'
         }
     }
-}
-
-ext {
-    compileSdkVersion = 28
-    buildToolsVersion = "28.0.3"
-
-    targetSdkVersion = 20
-    minSdkVersion = 14
-
-    versionCode = 800300
-    versionName = "0.8.3"
-}
-
-wrapper {
-    gradleVersion = '2.14.1'
 }

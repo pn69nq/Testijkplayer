@@ -1,18 +1,21 @@
 apply plugin: 'com.android.library'
 
+def cfg = rootProject.ext.android
+def supportLibs = rootProject.ext.supportDependencies
+
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion cfg.compileSdkVersion
     //noinspection GroovyAssignabilityCheck
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion cfg.buildToolsVersion
 
     lintOptions {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
     }
     buildTypes {
         release {
@@ -29,12 +32,4 @@ dependencies {
 
     api project(':ijkplayer-java')
     // compile 'tv.danmaku.ijk.media:ijkplayer-java:0.8.3'
-}
-
-gradle.startParameter.taskNames.each { task ->
-    def subProjectName = task;
-    if (task.startsWith(':'))
-        subProjectName = task.split(":")[1]
-    if (subProjectName.equals(project.name))
-        apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");
 }
